@@ -13,6 +13,13 @@ module.exports = {
    
     resolve: {
         extensions: ['.js', '.jsx'],
+        alias: {
+            '@components': path.resolve(__dirname, 'src/components/'),
+            '@containers': path.relative(__dirname, 'src/containers/'),
+            '@styles': path.resolve(__dirname, 'src/styles/'),
+            '@icons': path.resolve(__dirname, 'src/assets/icons/'),
+            '@logos': path.resolve(__dirname, 'src/assets/logos/'),
+        }
     },
     module: {
         rules: [
@@ -40,11 +47,11 @@ module.exports = {
                 ],
             },
             {
-                test: /\.(png,jpg,svg,jpeg,webp)$/,
-                type: 'asset/resource',
-                generator: {
+                test: /\.(png|jpg|svg|jpeg|gif)$/,
+                type: 'asset',
+               /* generator: {
                     filename: 'assets/pictures/[hash][ext]',
-                }
+                }*/
             },
         ]
     },
